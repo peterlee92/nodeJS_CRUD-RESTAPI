@@ -20,17 +20,13 @@ const Create = async(data) =>{
         //When email does not exist
         else {
             
-            try{
-                const hashedPassword = await bcrypt.hash(data.password, bcrypt_round);
-                // Query for creating a user
-                let createUser = await db.query(`
-                    INSERT INTO users (fullname, email, password) VALUES ($1, $2, $3)
-                `,[data.fullname, data.email, hashedPassword]);
-                return 'Successfully created';
+        const hashedPassword = await bcrypt.hash(data.password, bcrypt_round);
+        // Query for creating a user
+        let createUser = await db.query(`
+            INSERT INTO users (fullname, email, password) VALUES ($1, $2, $3)
+        `,[data.fullname, data.email, hashedPassword]);
+        return 'Successfully created';
 
-            }catch(err){
-                return 'Database error';
-            }
         }
 
     }catch(err){
