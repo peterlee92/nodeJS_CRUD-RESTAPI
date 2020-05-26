@@ -1,7 +1,7 @@
 const {Client} = require("pg");
 const dbconfig = {
   user:"postgres",
-  password:"dhqkwkd1!",
+  password:"",
   host:"localhost",
   port:"5432",
   database:"node"
